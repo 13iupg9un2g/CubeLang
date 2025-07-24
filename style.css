@@ -1,0 +1,136 @@
+
+/* Reset и базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+header {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    color: #00ffd1;
+    text-shadow: 0 0 8px #00ffd1;
+}
+h1 {
+    font-size: 3rem;
+}
+p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+}
+.cube-container {
+    perspective: 600px;
+    width: 150px;
+    height: 150px;
+}
+.cube {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform-style: preserve-3d;
+    animation: spin 10s linear infinite;
+}
+.face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #00ffd1, #00b7a8);
+    border: 2px solid #00ffd1;
+    color: #121212;
+    font-size: 5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 5px #fff;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+.front  { transform: translateZ(75px); }
+.back   { transform: rotateY(180deg) translateZ(75px); }
+.right  { transform: rotateY(90deg) translateZ(75px); }
+.left   { transform: rotateY(-90deg) translateZ(75px); }
+.top    { transform: rotateX(90deg) translateZ(75px); }
+.bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+@keyframes spin {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+button#startBtn {
+    padding: 1rem 3rem;
+    font-size: 1.5rem;
+    background: #00ffd1;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    color: #121212;
+    box-shadow: 0 0 15px #00ffd1;
+    transition: background-color 0.3s ease;
+}
+button#startBtn:hover {
+    background-color: #00b7a8;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    user-select: none;
+}
+
+main.lesson {
+    text-align: center;
+    padding: 2rem;
+}
+main.lesson ul {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+main.lesson input {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    border: none;
+    margin: 0.5rem;
+    width: 200px;
+}
+main.lesson button {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 20px;
+    border: none;
+    background-color: #00ffd1;
+    color: #121212;
+    cursor: pointer;
+}
+main.lesson #result {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+.nav-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
